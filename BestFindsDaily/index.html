@@ -8,211 +8,193 @@
     <script>
         let currentSlide = 0;
 
-function showSlide(index) {
-  const slides = document.querySelectorAll('.carousel-item');
-  if (index >= slides.length) {
-    currentSlide = 0;
-  } else if (index < 0) {
-    currentSlide = slides.length - 1;
-  } else {
-    currentSlide = index;
-  }
-  const carouselInner = document.querySelector('.carousel-inner');
-  carouselInner.style.transform = `translateX(${-currentSlide * 100}%)`;
-}
+        function showSlide(index) {
+          const slides = document.querySelectorAll('.carousel-item');
+          slides.forEach(slide => slide.classList.remove('active'));
+          if (index >= slides.length) {
+            currentSlide = 0;
+          } else if (index < 0) {
+            currentSlide = slides.length - 1;
+          } else {
+            currentSlide = index;
+          }
+          slides[currentSlide].classList.add('active');
+          const carouselInner = document.querySelector('.carousel-inner');
+          carouselInner.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
 
-function nextSlide() {
-  showSlide(currentSlide + 1);
-}
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+        }
 
-function prevSlide() {
-  showSlide(currentSlide - 1);
-}
+        function prevSlide() {
+          showSlide(currentSlide - 1);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const slides = document.querySelectorAll('.carousel-item');
+          document.querySelector('.carousel-inner').style.width = `${slides.length * 100}%`;
+        });
     </script>
     <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          line-height: 1.6;
+          color: #333;
+          background-color: #f4f4f4;
+        }
 
-header {
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
+        header {
+          background-color: #333;
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px;
+        }
 
-header h1 {
-    font-size: 1.8rem;
-}
+        header h1 {
+          font-size: 1.8rem;
+        }
 
-header nav ul {
-    list-style-type: none;
-    display: flex;
-}
+        header nav ul {
+          list-style-type: none;
+          display: flex;
+        }
 
-header nav ul li {
-    margin: 0 15px;
-}
+        header nav ul li {
+          margin: 0 15px;
+        }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+        header nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        }
 
-.hero {
-    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
+        .products-section {
+          padding: 50px 20px;
+          text-align: center;
+        }
 
-.hero h2 {
-    font-size: 2.5rem;
-}
+        .products-section h2 {
+          font-size: 2rem;
+          margin-bottom: 30px;
+        }
 
-.cta-btn {
-    background-color: #f4b400;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
+        .products-grid {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
 
-.cta-btn:hover {
-    background-color: #333;
-}
+        .product-card {
+          background-color: white;
+          width: 100%;
+          max-width: 300px;
+          padding: 20px;
+          margin-bottom: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.products-section {
-    padding: 50px 20px;
-    text-align: center;
-}
+        .product-card img {
+          max-width: 100%;
+          border-radius: 5px;
+        }
 
-.products-section h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
+        .product-card h3 {
+          font-size: 1.2rem;
+          margin: 10px 0;
+        }
 
-.products-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+        .buy-btn {
+          display: inline-block;
+          background-color: #f4b400;
+          color: white;
+          padding: 8px 15px;
+          text-decoration: none;
+          border-radius: 5px;
+        }
 
-.product-card {
-    background-color: white;
-    width: 30%;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .buy-btn:hover {
+          background-color: #333;
+        }
 
-.product-card img {
-    max-width: 100%;
-    border-radius: 5px;
-}
+        .carousel {
+          position: relative;
+          width: 80%;
+          max-width: 600px;
+          overflow: hidden;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.product-card h3 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
+        .carousel-inner {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+        }
 
-.buy-btn {
-    display: inline-block;
-    background-color: #f4b400;
-    color: white;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-}
+        .carousel-item {
+          flex: 1;
+          min-width: 100%;
+        }
 
-.buy-btn:hover {
-    background-color: #333;
-}
+        .carousel-item img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
+        .prev, .next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+          font-size: 20px;
+        }
 
-footer p {
-    margin: 5px 0;
-}
+        .prev {
+          left: 10px;
+        }
 
-footer a {
-    color: #f4b400;
-    text-decoration: none;
-}
+        .next {
+          right: 10px;
+        }
 
-footer a:hover {
-    text-decoration: underline;
-}
-.carousel {
-  position: relative;
-  width: 80%;
-  max-width: 600px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+        .prev:hover, .next:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
 
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 300%;
-}
+        footer {
+          background-color: #333;
+          color: white;
+          padding: 20px;
+          text-align: center;
+        }
 
-.carousel-item {
-  flex: 1;
-  min-width: 100%;
-}
+        footer p {
+          margin: 5px 0;
+        }
 
-.carousel-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+        footer a {
+          color: #f4b400;
+          text-decoration: none;
+        }
 
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+        footer a:hover {
+          text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -231,60 +213,48 @@ footer a:hover {
         </nav>
     </header>
 
-<!--   <section class="hero">
-        <div class="hero-text">
-            <h2>Shop the Best-Selling Amazon Products</h2>
-            <p>Discover top products across various categories handpicked just for you.</p>
-            <a href="#" class="cta-btn">Explore Now</a>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://m.media-amazon.com/images/G/31/img24/Sep/Jupiter/Slider/V2/V3/PC_header_1500x300_Shopnow._CB562515182_.gif" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img24/Fashion/AF/Jupiter/Event/StealDeals/Main_Header_PC_2.jpg" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/LEO/Jup24/Phase1/2/bank_PC_Header_1500x30055.jpg" alt="Image 3">
+            </div>
         </div>
-    </section> -->
-
-     <div class="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://m.media-amazon.com/images/G/31/img24/Sep/Jupiter/Slider/V2/V3/PC_header_1500x300_Shopnow._CB562515182_.gif" alt="Image 1">
-      </div>
-      <div class="carousel-item">
-        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img24/Fashion/AF/Jupiter/Event/StealDeals/Main_Header_PC_2.jpg" alt="Image 2">
-      </div>
-      <div class="carousel-item">
-        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/LEO/Jup24/Phase1/2/bank_PC_Header_1500x30055.jpg" alt="Image 3">
-      </div>
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
     </div>
-    <button class="prev" onclick="prevSlide()">❮</button>
-    <button class="next" onclick="nextSlide()">❯</button>
-  </div>
 
     <section class="products-section">
-        <h2>Best Sellers</h2>
+        <h2>Best Selling Products</h2>
         <div class="products-grid">
-            <!-- Product 1 -->
             <div class="product-card">
-                <img src="https://m.media-amazon.com/images/I/81VttNsrDwL._SX679_.jpg" alt="Product 1">
-                <h3>Top Amazon Echo Device</h3>
-                <p>Best-selling smart home device.</p>
-                <a href="https://www.amazon.com/dp/B084J4KZFM?tag=bestfindsda06-21" class="buy-btn">Buy on Amazon</a>
+                <img src="https://via.placeholder.com/300" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$99.99</p>
+                <a href="#" class="buy-btn">Buy Now</a>
             </div>
-            <!-- Product 2 -->
             <div class="product-card">
-                <img src="https://m.media-amazon.com/images/I/71o6YeJs+wL._SX569_.jpg" alt="Product 2">
-                <h3>Instant Pot Duo 7-in-1</h3>
-                <p>Top-rated kitchen appliance.</p>
-                <a href="https://www.amazon.com/dp/B00FLYWNYQ?tag=bestfindsda06-21" class="buy-btn">Buy on Amazon</a>
+                <img src="https://via.placeholder.com/300" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$199.99</p>
+                <a href="#" class="buy-btn">Buy Now</a>
             </div>
-            <!-- Product 3 -->
             <div class="product-card">
-                <img src="https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg" alt="Product 3">
-                <h3>Apple AirPods Pro</h3>
-                <p>Best-selling wireless earbuds.</p>
-                <a href="https://www.amazon.com/dp/B09JQK9DK5?tag=bestfindsda06-21" class="buy-btn">Buy on Amazon</a>
+                <img src="https://via.placeholder.com/300" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$299.99</p>
+                <a href="#" class="buy-btn">Buy Now</a>
             </div>
-            <!-- Add more products as needed -->
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 BestFindsDaily. All rights reserved.</p>
+        <p>© 2024 BestFindsDaily. All rights reserved.</p>
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 </body>
