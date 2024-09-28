@@ -47,19 +47,28 @@ header nav ul li a {
     font-weight: bold;
 }
 
-.hero {
-    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-}
+        .carousel-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .a-carousel-viewport {
+            overflow: hidden;
+            position: relative;
+        }
+        .a-carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .a-carousel-card {
+            width: 948px;
+            flex: 0 0 auto;
+            text-align: center;
+        }
+        .a-carousel-card img {
+            width: 100%;
+            max-height: 260px;
+            object-fit: cover;
+        }
 
 .cta-btn {
     background-color: #f4b400;
@@ -159,13 +168,28 @@ footer a:hover {
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Shop the Best-Selling Amazon Products</h2>
-            <p>Discover top products across various categories handpicked just for you.</p>
-            <a href="#" class="cta-btn">Explore Now</a>
+ <div class="carousel-container">
+        <div class="a-carousel-viewport" id="anonCarousel1" style="height: 260px;">
+            <ol class="a-carousel" role="list" style="width: 11376px;">
+                <li class="a-carousel-card" role="listitem" aria-hidden="false">
+                    <a href="https://www.amazon.in/b/?node=12497409031&amp;ref_=tb_surl_renewed_associates" target="_blank">
+                        <img src="https://m.media-amazon.com/images/G/31/certified_refurbished/anjaga/RenewedMarketing2024/Associates/Jupiter24/Renewed_Associate_2.jpg" alt="Refurbished and like-new products">
+                    </a>
+                </li>
+                <li class="a-carousel-card" role="listitem">
+                    <a href="https://www.amazon.in/alm/storefront?almBrandId=ctnow&amp;ref=mk_in_fresh_associates" target="_blank">
+                        <img src="https://m.media-amazon.com/images/G/31/FreshMarketing/Jup24/Associates/Save_big_on_groceries.jpg" alt="Up to 50% off on Groceries">
+                    </a>
+                </li>
+                <li class="a-carousel-card" role="listitem">
+                    <a href="https://www.amazon.in/l/21557580031?ref=ac_in_carousel-SLOT8" target="_blank">
+                        <img src="https://m.media-amazon.com/images/G/31/sthaneka/Alphonsa/Jupiter/associate/BS._CB1198675309_.jpg" alt="Budget store home essentials">
+                    </a>
+                </li>
+                <!-- Add more carousel items as necessary -->
+            </ol>
         </div>
-    </section>
+    </div>
 
     <section class="products-section">
         <h2>Best Sellers</h2>
