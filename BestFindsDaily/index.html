@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BestFindsDaily</title>
-    <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Reset some default browser styles */
 * {
     margin: 0;
     padding: 0;
@@ -15,31 +5,28 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
 }
 
-/* Header Styles */
 header {
     background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
 }
 
-header .logo h1 {
-    margin-left: 20px;
+header h1 {
     font-size: 1.8rem;
 }
 
 header nav ul {
-    list-style: none;
+    list-style-type: none;
     display: flex;
-    margin-right: 20px;
 }
 
 header nav ul li {
@@ -47,60 +34,44 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-header nav ul li a:hover {
-    color: #f4b400;
-}
-
-/* Hero Section */
 .hero {
-    background-image: url('https://via.placeholder.com/1500x600');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
     height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+    color: white;
 }
 
 .hero h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
 }
 
 .cta-btn {
     background-color: #f4b400;
-    color: #fff;
+    color: white;
     padding: 10px 20px;
     text-decoration: none;
-    font-size: 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 .cta-btn:hover {
     background-color: #333;
 }
 
-/* Featured Products Section */
-.featured-products {
+.products-section {
     padding: 50px 20px;
     text-align: center;
 }
 
-.featured-products h2 {
+.products-section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
 }
@@ -112,12 +83,11 @@ header nav ul li a:hover {
 }
 
 .product-card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    background-color: white;
     width: 30%;
+    padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
@@ -130,34 +100,28 @@ header nav ul li a:hover {
     margin: 10px 0;
 }
 
-.product-card p {
-    margin-bottom: 15px;
-}
-
 .buy-btn {
     display: inline-block;
     background-color: #f4b400;
-    color: #fff;
+    color: white;
     padding: 8px 15px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 .buy-btn:hover {
     background-color: #333;
 }
 
-/* Footer */
 footer {
     background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+    color: white;
+    padding: 20px;
     text-align: center;
 }
 
 footer p {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 footer a {
@@ -168,59 +132,3 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
-  </style>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>BestFindsDaily</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Discover Today's Best Deals!</h2>
-            <p>Shop smart and find top-rated products at the best prices, updated daily.</p>
-            <a href="#" class="cta-btn">Shop Now</a>
-        </div>
-    </section>
-
-    <section class="featured-products">
-        <h2>Featured Finds</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Top-rated and highly recommended</p>
-                <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Best value for your money</p>
-                <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Hot deal of the day</p>
-                <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 BestFindsDaily. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
-</body>
-</html>
